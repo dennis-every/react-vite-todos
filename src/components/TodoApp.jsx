@@ -1,9 +1,10 @@
 import Header from './Header';
+import TodosLogic from './TodosLogic';
 
 const TodoApp = () => (
   <>
     <Header />
-    <p>I am in a React Component!</p>
+    <TodosLogic />
   </>
 );
 export default TodoApp;
