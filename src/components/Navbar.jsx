@@ -1,22 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import './Nav.css';
+
+import useOnClickOutside from '../useOnClickOutside';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const ref = useRef();
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (dropdown && ref.current && !ref.current.contains(event.target)) {
-        setDropdown(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    return () => {
-      document.removeEventListener('mousedown', handler);
-    };
-  }, [dropdown]);
+  useOnClickOutside(ref, dropdown, () => setDropdown(false));
 
   return (
     <nav id="nav">
