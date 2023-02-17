@@ -13,6 +13,9 @@ const Navbar = () => {
       }
     };
     document.addEventListener('mousedown', handler);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+    };
   }, [dropdown]);
 
   return (
