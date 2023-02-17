@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Nav.css';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
-
+  useEffect(() => {
+    document.title = `Current state value: ${dropdown}`;
+  }, [dropdown]);
   return (
     <nav id="nav">
       <ul>
