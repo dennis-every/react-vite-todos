@@ -1,6 +1,8 @@
+import Header from './Header';
+
 const TodoApp = () => (
   <>
-    <h1>Hello World!</h1>
+    <Header />
     <p>I am in a React Component!</p>
   </>
 );
