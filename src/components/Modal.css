@@ -1,0 +1,31 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  gap: 1em;
+}
+
+button {
+  cursor: pointer;
+}
+
+.modalContent {
+  position: relative;
+  background: #d5d5d5;
+  width: 500px;
+  height: 200px;
+  max-width: 100%;
+  color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent button {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+}
