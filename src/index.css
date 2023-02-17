@@ -12,3 +12,8 @@ body {
   padding: 2rem;
   border-radius: 10px;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
