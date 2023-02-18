@@ -1,7 +1,19 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const InputTodo = () => {
+const InputTodo = (props) => {
   const [title, setTitle] = useState('');
+
+  const { addTodoItem } = props;
+
+  InputTodo.propTypes = {
+    addTodoItem: PropTypes.func,
+
+  };
+
+  InputTodo.defaultProps = {
+    addTodoItem: PropTypes.func,
+  };
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -9,7 +21,7 @@ const InputTodo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title);
+    addTodoItem(title);
     setTitle('');
   };
 
