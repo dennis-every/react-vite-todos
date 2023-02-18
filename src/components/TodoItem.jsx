@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const TodoItem = (props) => {
-  const { itemProp, setTodos } = props;
+  const { itemProp, handleChange } = props;
 
   TodoItem.propTypes = {
     itemProp: PropTypes.shape({
@@ -9,7 +9,7 @@ const TodoItem = (props) => {
       title: PropTypes.string.isRequired,
       completed: PropTypes.bool.isRequired,
     }),
-    setTodos: PropTypes.func,
+    handleChange: PropTypes.func,
   };
 
   TodoItem.defaultProps = {
@@ -18,19 +18,7 @@ const TodoItem = (props) => {
       title: '',
       completed: false,
     },
-    setTodos: () => {},
-  };
-
-  const handleChange = (id) => {
-    setTodos((prevState) => prevState.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed,
-        };
-      }
-      return todo;
-    }));
+    handleChange: () => {},
   };
 
   return (
