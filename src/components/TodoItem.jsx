@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import styles from '@/styles/TodoItem.module.css';
 
 const TodoItem = (props) => {
   const { itemProp, handleChange, delTodo } = props;
@@ -24,19 +25,21 @@ const TodoItem = (props) => {
   };
 
   return (
-    <li key={itemProp.id}>
-      <input
-        type="checkbox"
-        checked={itemProp.completed}
-        onChange={() => handleChange(itemProp.id)}
-      />
-      <button
-        type="button"
-        onClick={() => delTodo(itemProp.id)}
-      >
-        Delete
-      </button>
-      {itemProp.title}
+    <li key={itemProp.id} className={styles.item}>
+      <div className={styles.content}>
+        <input
+          type="checkbox"
+          checked={itemProp.completed}
+          onChange={() => handleChange(itemProp.id)}
+        />
+        <button
+          type="button"
+          onClick={() => delTodo(itemProp.id)}
+        >
+          Delete
+        </button>
+        {itemProp.title}
+      </div>
     </li>
   );
 };
