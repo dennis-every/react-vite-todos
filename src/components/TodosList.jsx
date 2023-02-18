@@ -5,7 +5,7 @@ const TodosList = (props) => {
   TodosList.propTypes = {
     todosProps: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         completed: PropTypes.bool,
       }),
