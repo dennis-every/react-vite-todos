@@ -12,15 +12,19 @@ const TodosList = (props) => {
     ),
     handleChange: PropTypes.func,
     delTodo: PropTypes.func,
+    setUpdate: PropTypes.func,
   };
 
   TodosList.defaultProps = {
     todosProps: [],
     handleChange: () => {},
     delTodo: () => {},
+    setUpdate: PropTypes.func,
   };
 
-  const { todosProps, handleChange, delTodo } = props;
+  const {
+    todosProps, handleChange, delTodo, setUpdate,
+  } = props;
 
   return (
     <ul>
@@ -30,6 +34,7 @@ const TodosList = (props) => {
           itemProp={todo}
           handleChange={handleChange}
           delTodo={delTodo}
+          setUpdate={setUpdate}
         />
       ))}
     </ul>
