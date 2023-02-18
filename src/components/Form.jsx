@@ -5,6 +5,7 @@ const Form = () => {
     fname: '',
     lname: '',
     message: '',
+    carBrand: '',
   });
 
   const handleChange = (e) => {
@@ -13,6 +14,14 @@ const Form = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
+  const carBrands = ['Mercedes', 'BMW', 'Maserati', 'Infinity', 'Audi'];
+  const carBrandOptions = carBrands.map((carBrand, key) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <option value={carBrand} key={key}>
+      {carBrand}
+    </option>
+  ));
 
   return (
     <>
@@ -44,11 +53,28 @@ const Form = () => {
         <br />
         <label htmlFor="message">
           Your Message:
+          {' '}
           <textarea
             name="message"
             value={state.message}
             onChange={handleChange}
           />
+        </label>
+        <br />
+        <br />
+        <label htmlFor="carBrand">
+          Car brand:
+          {' '}
+          <select
+            name="carBrand"
+            value={state.carBrand}
+            onChange={handleChange}
+          >
+            <option value={' '}>
+              -- Pick a car brand --
+            </option>
+            {carBrandOptions}
+          </select>
         </label>
         <br />
         <br />
@@ -60,6 +86,12 @@ const Form = () => {
           {state.fname}
           {' '}
           {state.lname}
+        </h5>
+        <br />
+        <h5>
+          Favorite car brand:
+          {' '}
+          {state.carBrand}
         </h5>
         <br />
         <p>
