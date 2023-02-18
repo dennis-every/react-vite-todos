@@ -9,7 +9,6 @@ const TodoItem = (props) => {
     itemProp, handleChange, delTodo, setUpdate,
   } = props;
   const [editing, setEditing] = useState(false);
-  // const [updateInput, setUpdateInput] = useState(itemProp.title);
   const editInputRef = useRef(null);
 
   const completedStyle = {
@@ -81,12 +80,10 @@ const TodoItem = (props) => {
       </div>
       <input
         type="text"
-        // value={itemProp.title}
         ref={editInputRef}
         defaultValue={itemProp.title}
         className={styles.textInput}
         style={editMode}
-        // onChange={(e) => setUpdate(e.target.value, itemProp.id)}
         onKeyDown={handleUpdatedDone}
       />
     </li>
