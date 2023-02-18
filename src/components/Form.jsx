@@ -4,6 +4,7 @@ const Form = () => {
   const [state, setState] = useState({
     fname: '',
     lname: '',
+    message: '',
   });
 
   const handleChange = (e) => {
@@ -27,6 +28,8 @@ const Form = () => {
             onChange={handleChange}
           />
         </label>
+        <br />
+        <br />
         <label htmlFor="lname">
           Last Name:
           {' '}
@@ -37,6 +40,20 @@ const Form = () => {
             onChange={handleChange}
           />
         </label>
+        <br />
+        <br />
+        <label htmlFor="message">
+          Your Message:
+          <textarea
+            name="message"
+            value={state.message}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <br />
+        <hr />
+        <br />
         <h5>
           Name:
           {' '}
@@ -44,6 +61,12 @@ const Form = () => {
           {' '}
           {state.lname}
         </h5>
+        <br />
+        <p>
+          Message:
+          {' '}
+          {state.message}
+        </p>
       </form>
     </>
   );
