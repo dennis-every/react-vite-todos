@@ -3,6 +3,12 @@ import styles from '@/styles/TodoItem.module.css';
 
 const TodoItem = (props) => {
   const { itemProp, handleChange, delTodo } = props;
+  const completedStyle = {
+    fontStyle: 'italic',
+    color: '#595959',
+    opacity: 0.4,
+    textDecoration: 'line-through',
+  };
 
   TodoItem.propTypes = {
     itemProp: PropTypes.shape({
@@ -38,7 +44,7 @@ const TodoItem = (props) => {
         >
           Delete
         </button>
-        {itemProp.title}
+        <span style={itemProp.completed ? completedStyle : null}>{itemProp.title}</span>
       </div>
     </li>
   );
