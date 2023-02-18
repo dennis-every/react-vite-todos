@@ -1,30 +1,48 @@
 import { useState } from 'react';
 
 const Form = () => {
-  const [fname, setFname] = useState('');
+  const [state, setState] = useState({
+    fname: '',
+    lname: '',
+  });
 
   const handleChange = (e) => {
-    setFname(e.target.value);
+    setState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
     <>
       <h1>Controller Form</h1>
       <form>
-        <label htmlFor="name">
+        <label htmlFor="fname">
           First Name:
           {' '}
           <input
-            name="name"
+            name="fname"
             type="text"
-            value={fname}
+            value={state.fname}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="lname">
+          Last Name:
+          {' '}
+          <input
+            name="lname"
+            type="text"
+            value={state.lname}
             onChange={handleChange}
           />
         </label>
         <h5>
-          First name:
+          Name:
           {' '}
-          {fname}
+          {state.fname}
+          {' '}
+          {state.lname}
         </h5>
       </form>
     </>
