@@ -5,22 +5,29 @@ const TodosList = (props) => {
   TodosList.propTypes = {
     todosProps: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
+        completed: PropTypes.bool,
       }),
     ),
+    setTodos: PropTypes.func,
   };
 
   TodosList.defaultProps = {
     todosProps: [],
+    setTodos: () => {},
   };
 
-  const { todosProps } = props;
+  const { todosProps, setTodos } = props;
 
   return (
     <ul>
       {todosProps.map((todo) => (
-        <TodoItem key={todo.id} itemProp={todo} />
+        <TodoItem
+          key={todo.id}
+          itemProp={todo}
+          setTodos={setTodos}
+        />
       ))}
     </ul>
   );
