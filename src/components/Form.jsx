@@ -8,6 +8,7 @@ const Form = () => {
     carBrand: '',
     isChecked: false,
     gender: '',
+    price: 0,
   });
 
   const handleChange = (e) => {
@@ -118,6 +119,20 @@ const Form = () => {
         </label>
         <br />
         <br />
+        <label htmlFor="price">
+          Price:
+          {' '}
+          <input
+            type="range"
+            name="price"
+            min="0"
+            max="50"
+            value={state.price}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <br />
         <hr />
         <br />
         <h5>
@@ -150,6 +165,12 @@ const Form = () => {
           Gender:
           {' '}
           {state.gender}
+        </h5>
+        <br />
+        <h5>
+          Price:
+          {' $'}
+          {state.price}
         </h5>
       </form>
     </>
