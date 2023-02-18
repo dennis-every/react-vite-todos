@@ -1,3 +1,5 @@
 # react-vite-todos
 
-- add dev branch
+- Add dev branch
+- Add branch project setup
+- [ Reference ](https://ibaslogic.com/react-tutorial-for-beginners/)
