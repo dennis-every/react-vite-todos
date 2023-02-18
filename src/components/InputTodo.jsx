@@ -21,8 +21,12 @@ const InputTodo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodoItem(title);
-    setTitle('');
+    if (title.trim()) {
+      addTodoItem(title.trim());
+      setTitle('');
+    } else {
+      alert('Please add item');
+    }
   };
 
   return (
