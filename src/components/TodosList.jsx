@@ -11,14 +11,16 @@ const TodosList = (props) => {
       }),
     ),
     handleChange: PropTypes.func,
+    delTodo: PropTypes.func,
   };
 
   TodosList.defaultProps = {
     todosProps: [],
     handleChange: () => {},
+    delTodo: () => {},
   };
 
-  const { todosProps, handleChange } = props;
+  const { todosProps, handleChange, delTodo } = props;
 
   return (
     <ul>
@@ -27,6 +29,7 @@ const TodosList = (props) => {
           key={todo.id}
           itemProp={todo}
           handleChange={handleChange}
+          delTodo={delTodo}
         />
       ))}
     </ul>
