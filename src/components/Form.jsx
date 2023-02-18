@@ -1,23 +1,31 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const Form = () => {
-  const ref = useRef();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // eslint-disable-next-line no-alert
-    alert(ref.current.value);
+  const [fname, setFname] = useState('');
+
+  const handleChange = (e) => {
+    setFname(e.target.value);
   };
 
   return (
     <>
-      <h1>React Form Handling</h1>
-      <form onSubmit={handleSubmit}>
+      <h1>Controller Form</h1>
+      <form>
         <label htmlFor="name">
           First Name:
           {' '}
-          <input name="name" type="text" ref={ref} defaultValue="Enter name..." />
+          <input
+            name="name"
+            type="text"
+            value={fname}
+            onChange={handleChange}
+          />
         </label>
-        <input type="submit" />
+        <h5>
+          First name:
+          {' '}
+          {fname}
+        </h5>
       </form>
     </>
   );
