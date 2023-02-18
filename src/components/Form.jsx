@@ -19,6 +19,11 @@ const Form = () => {
     }));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(state);
+  };
+
   const carBrands = ['Mercedes', 'BMW', 'Maserati', 'Infinity', 'Audi'];
   const carBrandOptions = carBrands.map((carBrand, key) => (
     // eslint-disable-next-line react/no-array-index-key
@@ -29,8 +34,8 @@ const Form = () => {
 
   return (
     <>
-      <h1>Controller Form</h1>
-      <form>
+      <h1>Controlled Form</h1>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="fname">
           First Name:
           {' '}
@@ -133,8 +138,13 @@ const Form = () => {
         </label>
         <br />
         <br />
-        <hr />
-        <br />
+        <button type="submit">Submit</button>
+      </form>
+      <br />
+      <br />
+      <hr />
+      <br />
+      <div>
         <h5>
           Name:
           {' '}
@@ -172,7 +182,7 @@ const Form = () => {
           {' $'}
           {state.price}
         </h5>
-      </form>
+      </div>
     </>
   );
 };
