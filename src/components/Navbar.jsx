@@ -1,7 +1,15 @@
 import { useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Nav.css';
 
 import useOnClickOutside from '../useOnClickOutside';
+
+const links = [
+  { path: '/', text: 'Home' },
+  { path: 'about', text: 'About' },
+  { path: 'profile', text: 'Profile' },
+  { path: 'login', text: 'Login' },
+];
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -11,26 +19,13 @@ const Navbar = () => {
   useOnClickOutside(ref, dropdown, () => setDropdown(false));
 
   return (
-    <nav id="nav">
+    <nav className="navbar">
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li ref={ref} id="services">
-          <button
-            type="button"
-            onClick={() => setDropdown((prev) => !prev)}
-          >
-            Services
-            {' '}
-            <span>&#8595;</span>
-          </button>
-          {dropdown && (
-            <ul>
-              <li>Design</li>
-              <li>Development</li>
-            </ul>
-          )}
-        </li>
+        {links.map((link) => (
+          <li key={link.text}>
+            <NavLink to={link.path}>{link.text}</NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );
