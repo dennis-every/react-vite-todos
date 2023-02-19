@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FaTrash } from 'react-icons/fa';
 import { AiFillEdit } from 'react-icons/ai';
+import { useTodosContext } from '../context/TodosContext';
 import styles from '@/styles/TodoItem.module.css';
 
 const TodoItem = (props) => {
-  const {
-    itemProp, handleChange, delTodo, setUpdate,
-  } = props;
+  // eslint-disable-next-line react/prop-types
+  const { itemProp } = props;
+  const { handleChange, delTodo, setUpdate } = useTodosContext();
   const [editing, setEditing] = useState(false);
   const editInputRef = useRef(null);
 
@@ -18,27 +20,27 @@ const TodoItem = (props) => {
     textDecoration: 'line-through',
   };
 
-  TodoItem.propTypes = {
-    itemProp: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      completed: PropTypes.bool.isRequired,
-    }),
-    handleChange: PropTypes.func,
-    delTodo: PropTypes.func,
-    setUpdate: PropTypes.func,
-  };
+  // TodoItem.propTypes = {
+  //   itemProp: PropTypes.shape({
+  //     id: PropTypes.string.isRequired,
+  //     title: PropTypes.string.isRequired,
+  //     completed: PropTypes.bool.isRequired,
+  //   }),
+  //   handleChange: PropTypes.func,
+  //   delTodo: PropTypes.func,
+  //   setUpdate: PropTypes.func,
+  // };
 
-  TodoItem.defaultProps = {
-    itemProp: {
-      id: 0,
-      title: '',
-      completed: false,
-    },
-    handleChange: () => {},
-    delTodo: () => {},
-    setUpdate: PropTypes.func,
-  };
+  // TodoItem.defaultProps = {
+  //   itemProp: {
+  //     id: 0,
+  //     title: '',
+  //     completed: false,
+  //   },
+  //   handleChange: () => {},
+  //   delTodo: () => {},
+  //   setUpdate: PropTypes.func,
+  // };
 
   const handleEditing = () => {
     setEditing(true);

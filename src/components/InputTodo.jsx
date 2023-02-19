@@ -1,21 +1,22 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
+import { useTodosContext } from '../context/TodosContext';
 
-const InputTodo = (props) => {
+const InputTodo = () => {
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
 
-  const { addTodoItem } = props;
+  const { addTodoItem } = useTodosContext();
 
-  InputTodo.propTypes = {
-    addTodoItem: PropTypes.func,
+  // InputTodo.propTypes = {
+  //   addTodoItem: PropTypes.func,
 
-  };
+  // };
 
-  InputTodo.defaultProps = {
-    addTodoItem: PropTypes.func,
-  };
+  // InputTodo.defaultProps = {
+  //   addTodoItem: PropTypes.func,
+  // };
 
   const handleChange = (e) => {
     setTitle(e.target.value);
